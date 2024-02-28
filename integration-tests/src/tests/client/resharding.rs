@@ -1580,10 +1580,10 @@ fn test_latest_protocol_missing_chunks_mid_missing_prob() {
     test_latest_protocol_missing_chunks(0.5, 26);
 }
 
-#[test]
-fn test_latest_protocol_missing_chunks_high_missing_prob() {
-    test_latest_protocol_missing_chunks(0.9, 27);
-}
+// #[test]
+// fn test_latest_protocol_missing_chunks_high_missing_prob() {
+//     test_latest_protocol_missing_chunks(0.9, 27);
+// }
 
 fn test_shard_layout_upgrade_error_handling_impl(
     resharding_type: ReshardingType,

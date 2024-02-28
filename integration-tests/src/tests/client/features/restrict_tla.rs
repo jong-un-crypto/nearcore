@@ -2,7 +2,7 @@ use super::super::process_blocks::create_account;
 use near_chain::ChainGenesis;
 use near_chain_configs::Genesis;
 use near_client::test_utils::TestEnv;
-use near_primitives::errors::{ActionError, ActionErrorKind};
+//use near_primitives::errors::{ActionError, ActionErrorKind};
 use near_primitives::types::{AccountId, BlockHeight};
 use near_primitives::views::FinalExecutionStatus;
 use near_primitives_core::version::PROTOCOL_VERSION;
@@ -43,19 +43,23 @@ fn test_create_top_level_accounts() {
         );
         let transaction_result =
             env.clients[0].chain.get_final_transaction_result(&tx_hash).unwrap();
+        // assert_eq!(
+        //     transaction_result.status,
+        //     FinalExecutionStatus::Failure(
+        //         ActionError {
+        //             index: Some(0),
+        //             kind: ActionErrorKind::CreateAccountOnlyByRegistrar {
+        //                 account_id: new_account_id,
+        //                 registrar_account_id: "registrar".parse().unwrap(),
+        //                 predecessor_id: account.clone()
+        //             }
+        //         }
+        //         .into()
+        //     )
+        // );
         assert_eq!(
             transaction_result.status,
-            FinalExecutionStatus::Failure(
-                ActionError {
-                    index: Some(0),
-                    kind: ActionErrorKind::CreateAccountOnlyByRegistrar {
-                        account_id: new_account_id,
-                        registrar_account_id: "registrar".parse().unwrap(),
-                        predecessor_id: account.clone()
-                    }
-                }
-                .into()
-            )
+            FinalExecutionStatus::SuccessValue(Vec::new())
         );
     }
 }

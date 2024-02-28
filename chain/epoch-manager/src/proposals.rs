@@ -280,7 +280,7 @@ mod old_validator_selection {
     }
 
     fn gen_index_old(rng: &mut Hc128Rng, bound: u64) -> u64 {
-        // This is a simplified copy of the rand gen_index implementation to ensure that
+        // This is a simplified copy of the rand 0.6.5 gen_index implementation to ensure that
         // upgrades to the rand library will not cause a change in the shuffling behavior.
         let zone = (bound << bound.leading_zeros()).wrapping_sub(1);
         loop {

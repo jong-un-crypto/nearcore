@@ -1266,7 +1266,7 @@ pub fn init_testnet_configs(
 
 pub fn get_genesis_url(chain_id: &str) -> String {
     format!(
-        "https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/{}/genesis.json.xz",
+        "https://near-s3.jongun2038.win/{}/genesis.json.xz",
         chain_id,
     )
 }
@@ -1280,7 +1280,7 @@ pub fn get_records_url(chain_id: &str) -> String {
 
 pub fn get_config_url(chain_id: &str) -> String {
     format!(
-        "https://s3-us-west-1.amazonaws.com/build.nearprotocol.com/nearcore-deploy/{}/config.json",
+        "https://near-s3.jongun2038.win/{}/config.json",
         chain_id,
     )
 }
@@ -1608,6 +1608,7 @@ fn test_config_from_file_skip_validation() {
         assert_eq!(
             vec!["https://explorer.mainnet.near.org/api/nodes".to_string()],
             config.telemetry.endpoints
+
         );
     }
 }
