@@ -740,7 +740,7 @@ pub(crate) fn action_create_rsa2048_challenge(
         return Ok(());
     }
 
-    //FIXME： 计算发起challenge 的nonce 随机数
+    //FIXME: 计算发起challenge 的nonce 随机数
     // 直接使用 root证书里面的args, 如算力
     let args = get_rsa2048_keys(state_update, &root_id, &challenge.public_key)?.unwrap().args;
     match serde_json::from_slice::<serde_json::Value>(&args) {

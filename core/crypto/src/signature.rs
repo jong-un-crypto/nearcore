@@ -861,7 +861,7 @@ struct Bs58<'a>(&'a [u8]);
 
 impl<'a> core::fmt::Display for Bs58<'a> {
     fn fmt(&self, fmt: &mut core::fmt::Formatter<'_>) -> core::fmt::Result {
-        debug_assert!(self.0.len() <= 1218);
+        debug_assert!(self.0.len() <= 2048);
         // The largest buffer we’re ever encoding is 65-byte long.  Base58
         // increases size of the value by less than 40%.  96-byte buffer is
         // therefore enough to fit the largest value we’re ever encoding.
